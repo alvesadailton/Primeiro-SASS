@@ -1,0 +1,135 @@
+$text-color: #ffff00;
+$text-menu-color: #fff;
+$bg-color: #7159c1;
+$menu-color: #000; 
+$container-color: #3f239d;
+$cards-color : #3899ee;
+$footer-color: #92c3ef;
+
+.flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin text-format() {
+    color: $text-color;
+    font-size: 2rem;
+    font-weight: 600;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+@mixin box-shadow($color: rgba(0, 0, 0, 0.6)) {
+    box-shadow: 3px 3px 4px 1px rgba($color, 0.5);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: $bg-color;
+}
+
+.menu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    background: $menu-color;
+    color: $text-menu-color;
+    width: 100vw;
+    height: 40px;
+    padding: 0 10px;
+    h1 {
+        justify-self: center;
+        vertical-align: center;
+        font-size: 3rem;
+        height: 30px;
+        width: 90px;
+        margin-left: 40px;
+    }
+    li {
+        display: inline-block;
+        margin: 0 5px;
+    }
+    a {
+        text-decoration: none;
+        color: $text-menu-color;
+        margin-right: 20px;
+        font-size: 2.5rem;
+        font-weight: 600;
+        &:hover {
+            font-size: 2.6rem;
+            transition: 500ms;
+        }
+    }
+}
+
+.container {
+    @extend .flexCenter;
+    flex-direction: column;
+    background-color: $container-color;
+    margin: 50px 10px 10px 10px;
+    @include box-shadow;
+    padding-top: 35px;
+    padding-bottom: 20px;
+
+    p {
+        @include text-format();
+    }
+    .images {
+        display: flex;
+        img {
+            width: 300px;
+            height: 200px;
+        }
+    }
+}
+
+.cards {
+    @extend .flexCenter;
+    flex-direction: column;
+    background-color: $cards-color;
+    margin: 10px;
+    @include box-shadow;
+    img {
+        width: 250px;
+        height: 130px;
+        margin-bottom: 20px;
+        &:hover {
+            width: 260px;
+            height: 135px;
+            transition: 500ms;
+        }
+    }
+    p {
+        @include text-format();
+        text-decoration: none;
+    }
+}
+
+footer {
+    @extend .flexCenter;
+    justify-content: space-around;
+    background-color: $footer-color;
+    margin: 10px;
+    height: 40px;
+    @include box-shadow;
+    img {
+        height: 30px;
+        &:hover {
+            height: 35px;
+            transition: 500ms;
+        }
+    }
+}
